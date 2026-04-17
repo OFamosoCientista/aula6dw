@@ -167,7 +167,12 @@
 
 <section id="jogo" class="">
   <h2>Jogo da Velha</h2>
-  <p>Em breve...</p>
+
+  <div id="board"></div>
+
+  <p id="status">Vez do jogador: X</p>
+
+  <button onclick="resetGame()">Reiniciar</button>
 </section>
 
 <section id="calc" class="">
@@ -179,11 +184,12 @@
     <div class="buttons">
       <button onclick="clearCalc()" class="gray">AC</button>
       <button onclick="add('%')" class="gray">%</button>
+      <button onclick="" class=""></button>
       <button onclick="add('/')" class="orange">÷</button>
 
-      <button onclick="add('7')">7</button>
-      <button onclick="add('8')">8</button>
       <button onclick="add('9')">9</button>
+      <button onclick="add('8')">8</button>
+      <button onclick="add('7')">7</button>
       <button onclick="add('*')" class="orange">×</button>
 
       <button onclick="add('4')">4</button>
