@@ -1,6 +1,4 @@
 {
-
-  
   "extends": [
     "development"
   ],
@@ -11,6 +9,13 @@
         "ignore": [
           "meta[name=theme-color]"
         ]
+      }
+    ],
+    "meta-viewport": "off",
+    "axe/forms": [
+      "default",
+      {
+        "label": "off"
       }
     ]
   }

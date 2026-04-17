@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Multi Ferramentas</title>
+  <link rel="stylesheet" href="../src/beggin.css">
+  <link rel="stylesheet" href="../src/index.css">
+</head>
+<body>
+
+<header>
+  <h1>Projeto Multi Ferramentas</h1>
+  <nav>
+    <button onclick="show('todo')">To-Do List</button>
+    <button onclick="show('contador')">Contador</button>
+    <button onclick="show('jogo')">Jogo da Velha</button>
+    <button onclick="show('calc')">Calculadora</button>
+    <button onclick="show('cep')">Buscador de CEP</button>
+  </nav>
+</header>
+
+<section id="todo" class="active">
+  <h2>To-Do List</h2>
+  <input type="text" id="task" placeholder="Digite uma tarefa">
+  <button onclick="addTask()">Adicionar</button>
+  <ul id="list"></ul>
+</section>
+
+<section id="contador">
+  <h2>Contador de Cliques</h2>
+  <p id="count">0</p>
+  <button onclick="increment()">Clique</button>
+</section>
+
+<section id="jogo">
+  <h2>Jogo da Velha</h2>
+  <p>Em breve...</p>
+</section>
+
+<section id="calc">
+  <h2>Calculadora</h2>
+  <input id="num1" type="number">
+  <input id="num2" type="number">
+  <button onclick="calc('+')">+</button>
+  <button onclick="calc('-')">-</button>
+  <button onclick="calc('*')">*</button>
+  <button onclick="calc('/')">/</button>
+  <p id="result"></p>
+</section>
+
+<section id="cep">
+  <h2>Buscador de CEP</h2>
+  <input id="cepInput" placeholder="Digite o CEP">
+  <button onclick="buscarCEP()">Buscar</button>
+  <p id="cepResult"></p>
+</section>
+
+<script src="../src/beggin.js"></script>
+
+</body>
+</html>
