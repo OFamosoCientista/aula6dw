@@ -1,7 +1,5 @@
 import logo from './logo.svg';
 import './App.css';
-import '../src/beggin.js'
-import '../src/beggin.css'
 
 function App() {
   return (

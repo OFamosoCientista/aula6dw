@@ -3,7 +3,85 @@
 <head>
   <meta charset="UTF-8">
   <title>Multi Ferramentas</title>
-  <link rel="stylesheet" href="beggin.css">
+  <style>
+    body {
+      font-family: Arial;
+      margin: 0;
+      background: #f4f4f4;
+    }
+
+    header {
+      background: #333;
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+
+    nav button {
+      margin: 5px;
+      padding: 10px;
+      cursor: pointer;
+      border: none;
+      background: #555;
+      color: white;
+    }
+
+    nav button:hover {
+      background: #777;
+    }
+
+    section {
+      display: none;
+      padding: 20px;
+    }
+
+    .active {
+      display: block;
+    }
+
+    /* To-Do */
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      background: white;
+      margin: 5px 0;
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    /* Jogo da Velha */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 100px);
+      gap: 5px;
+    }
+
+    .cell {
+      width: 100px;
+      height: 100px;
+      background: white;
+      font-size: 2em;
+      text-align: center;
+      line-height: 100px;
+      cursor: pointer;
+    }
+
+    /* Calculadora */
+    .calc button {
+      width: 50px;
+      height: 50px;
+      margin: 5px;
+    }
+
+    input {
+      padding: 8px;
+      margin: 5px;
+    }
+
+  </style>
 </head>
 <body>
 
@@ -54,7 +132,72 @@
   <p id="cepResult"></p>
 </section>
 
-</body>
+<script>
+  // Navegação
+  function show(id) {
+    document.querySelectorAll("section").forEach(s => s.classList.remove("active"));
+    document.getElementById(id).classList.add("active");
+  }
 
-<script src="beggin.js"></script>
+  // To-Do
+  function addTask() {
+    let task = document.getElementById("task").value;
+    let li = document.createElement("li");
+    li.textContent = task;
+    li.onclick = () => li.remove();
+    document.getElementById("list").appendChild(li);
+  }
+
+  // Contador
+  let count = 0;
+  function increment() {
+    count++;
+    document.getElementById("count").textContent = count;
+  }
+
+  // Jogo da Velha
+  let board = Array(9).fill("");
+  let player = "X";
+
+  const boardDiv = document.getElementById("board");
+  board.forEach((_, i) => {
+    let cell = document.createElement("div");
+    cell.className = "cell";
+    cell.onclick = () => play(i, cell);
+    boardDiv.appendChild(cell);
+  });
+
+  function play(i, cell) {
+    if (board[i] === "") {
+      board[i] = player;
+      cell.textContent = player;
+      player = player === "X" ? "O" : "X";
+    }
+  }
+
+  // Calculadora
+  function add(value) {
+    document.getElementById("display").value += value;
+  }
+
+  function clearCalc() {
+    document.getElementById("display").value = "";
+  }
+
+  function calc() {
+    let exp = document.getElementById("display").value;
+    document.getElementById("display").value = eval(exp);
+  }
+
+  // CEP
+  async function buscarCEP() {
+    let cep = document.getElementById("cepInput").value;
+    let res = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+    let data = await res.json();
+
+    document.getElementById("cepResult").textContent =
+      data.logradouro + ", " + data.bairro + " - " + data.localidade;
+  }
+</script>
+</body>
 </html>
