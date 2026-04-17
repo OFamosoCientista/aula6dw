@@ -186,6 +186,7 @@
   <p id="count">0</p>
   <button onclick="increment()">+</button>
   <button onclick="decrease()">-</button>
+  <p id="count2">0</p>
 </section>
 
 <section id="jogo" class="">
@@ -278,13 +279,18 @@
 
   // Contador
   let count = 0;
+  let count2 = 0;
   function increment() {
     count++;
+    count2++;
     document.getElementById("count").textContent = count;
+    document.getElementById("count").textContent = count2;
   }
   function decrease() {
   count--;
+  count2++;
   document.getElementById("count").textContent = count;
+  document.getElementById("count").textContent = count2;
   }
 
   // Jogo da Velha
