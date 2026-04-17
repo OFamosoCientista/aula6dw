@@ -135,7 +135,30 @@
     border-radius: 25px;
     }
 
-  </style>
+    #board {
+    display: grid;
+    grid-template-columns: repeat(3, 80px);
+    gap: 5px;
+    justify-content: center;
+    margin: 15px 0;
+    }
+
+    .cell {
+    width: 80px;
+    height: 80px;
+    background: #222;
+    color: white;
+    font-size: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    }
+
+    .cell:hover {
+    background: #444;
+    }
+</style>
 </head>
 <body>
 
@@ -265,24 +288,72 @@
   }
 
   // Jogo da Velha
-  let board = Array(9).fill("");
-  let player = "X";
+    let board = Array(9).fill("");
+    let player = "X";
+    let gameOver = false;
 
-  const boardDiv = document.getElementById("board");
-  board.forEach((_, i) => {
-    let cell = document.createElement("div");
-    cell.className = "cell";
-    cell.onclick = () => play(i, cell);
-    boardDiv.appendChild(cell);
-  });
+    const boardDiv = document.getElementById("board");
+    const statusText = document.getElementById("status");
 
-  function play(i, cell) {
-    if (board[i] === "") {
-      board[i] = player;
-      cell.textContent = player;
-      player = player === "X" ? "O" : "X";
+    // Create board
+    function createBoard() {
+    boardDiv.innerHTML = "";
+    board.forEach((_, i) => {
+        let cell = document.createElement("div");
+        cell.className = "cell";
+        cell.onclick = () => play(i, cell);
+        boardDiv.appendChild(cell);
+    });
     }
-  }
+
+    // Play move
+    function play(i, cell) {
+    if (board[i] !== "" || gameOver) return;
+
+    board[i] = player;
+    cell.textContent = player;
+
+    if (checkWinner()) {
+        statusText.textContent = `Jogador ${player} venceu!`;
+        gameOver = true;
+        return;
+    }
+
+    if (!board.includes("")) {
+        statusText.textContent = "Empate!";
+        gameOver = true;
+        return;
+    }
+
+    player = player === "X" ? "O" : "X";
+    statusText.textContent = `Vez do jogador: ${player}`;
+    }
+
+    // Check winner
+    function checkWinner() {
+    const wins = [
+        [0,1,2], [3,4,5], [6,7,8],
+        [0,3,6], [1,4,7], [2,5,8],
+        [0,4,8], [2,4,6]
+    ];
+
+    return wins.some(combo => {
+        const [a, b, c] = combo;
+        return board[a] && board[a] === board[b] && board[a] === board[c];
+    });
+    }
+
+    // Reset game
+    function resetGame() {
+    board = Array(9).fill("");
+    player = "X";
+    gameOver = false;
+    statusText.textContent = "Vez do jogador: X";
+    createBoard();
+    }
+
+    // Initialize
+    createBoard();
 
   // Calculadora
   function add(value) {
