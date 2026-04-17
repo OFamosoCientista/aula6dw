@@ -88,11 +88,11 @@
 <header>
   <h1>Projeto Multi Ferramentas</h1>
   <nav>
-    <button onclick="showSection('todo')">To-Do List</button>
-    <button onclick="showSection('contador')">Contador</button>
-    <button onclick="showSection('jogo')">Jogo da Velha</button>
-    <button onclick="showSection('calc')">Calculadora</button>
-    <button onclick="showSection('cep')">Buscador de CEP</button>
+    <button onclick="show('todo')">To-Do List</button>
+    <button onclick="show('contador')">Contador</button>
+    <button onclick="show('jogo')">Jogo da Velha</button>
+    <button onclick="show('calc')">Calculadora</button>
+    <button onclick="show('cep')">Buscador de CEP</button>
   </nav>
 </header>
 
@@ -104,30 +104,52 @@
   <ul id="list"></ul>
 </section>
 
-<section id="contador" class="active">
+<section id="contador" class="">
   <h2>Contador de Cliques</h2>
   <p id="count">0</p>
   <button onclick="increment()">+</button>
   <button onclick="decrease()">-</button>
 </section>
 
-<section id="jogo" class="active">
+<section id="jogo" class="">
   <h2>Jogo da Velha</h2>
   <p>Em breve...</p>
 </section>
 
-<section id="calc" class="active">
+<section id="calc" class="">
   <h2>Calculadora</h2>
-  <input id="num1" type="number" placeholder="Número 1">
-  <input id="num2" type="number" placeholder="Número 2">
-  <button onclick="calc('+')">+</button>
-  <button onclick="calc('-')">-</button>
-  <button onclick="calc('*')">*</button>
-  <button onclick="calc('/')">/</button>
-  <p id="result"></p>
+
+  <div class="calculator">
+    <input type="text" id="display" disabled>
+
+    <div class="buttons">
+      <button onclick="clearCalc()" class="gray">AC</button>
+      <button onclick="add('%')" class="gray">%</button>
+      <button onclick="add('/')" class="orange">÷</button>
+
+      <button onclick="add('7')">7</button>
+      <button onclick="add('8')">8</button>
+      <button onclick="add('9')">9</button>
+      <button onclick="add('*')" class="orange">×</button>
+
+      <button onclick="add('4')">4</button>
+      <button onclick="add('5')">5</button>
+      <button onclick="add('6')">6</button>
+      <button onclick="add('-')" class="orange">−</button>
+
+      <button onclick="add('1')">1</button>
+      <button onclick="add('2')">2</button>
+      <button onclick="add('3')">3</button>
+      <button onclick="add('+')" class="orange">+</button>
+
+      <button onclick="add('0')" class="zero">0</button>
+      <button onclick="add('.')">.</button>
+      <button onclick="calc()" class="orange">=</button>
+    </div>
+  </div>
 </section>
 
-<section id="cep" class="active">
+<section id="cep" class="">
   <h2>Buscador de CEP</h2>
   <input id="cepInput" placeholder="Digite o CEP">
   <button onclick="buscarCEP()">Buscar</button>
