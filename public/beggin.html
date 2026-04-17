@@ -17,7 +17,7 @@
       text-align: center;
     }
 
-    nav button {
+    button {
       margin: 5px;
       padding: 10px;
       cursor: pointer;
@@ -106,7 +106,7 @@
     gap: 10px;
     }
 
-    button {
+    .circular {
     height: 50px;
     font-size: 18px;
     border: none;
@@ -206,29 +206,29 @@
     <input type="text" id="display" disabled>
 
     <div class="buttons">
-      <button onclick="clearCalc()" class="gray">AC</button>
-      <button onclick="add('%')" class="gray">%</button>
-      <button onclick="" class=""></button>
-      <button onclick="add('/')" class="orange">÷</button>
+      <button onclick="clearCalc()" class="gray circular">AC</button>
+      <button onclick="add('%')" class="gray circular">%</button>
+      <button onclick="" class="circular"></button>
+      <button onclick="add('/')" class="orange circular">÷</button>
 
-      <button onclick="add('9')">9</button>
-      <button onclick="add('8')">8</button>
-      <button onclick="add('7')">7</button>
-      <button onclick="add('*')" class="orange">×</button>
+      <button onclick="add('9')" class="gray circular">9</button>
+      <button onclick="add('8')" class="gray circular">8</button>
+      <button onclick="add('7')" class="gray circular">7</button>
+      <button onclick="add('*')" class="orange circular">×</button>
 
-      <button onclick="add('4')">4</button>
-      <button onclick="add('5')">5</button>
-      <button onclick="add('6')">6</button>
-      <button onclick="add('-')" class="orange">−</button>
+      <button onclick="add('4')" class="gray circular">4</button>
+      <button onclick="add('5')" class="gray circular">5</button>
+      <button onclick="add('6')" class="gray circular">6</button>
+      <button onclick="add('-')" class="orange circular">−</button>
 
-      <button onclick="add('1')">1</button>
-      <button onclick="add('2')">2</button>
-      <button onclick="add('3')">3</button>
-      <button onclick="add('+')" class="orange">+</button>
+      <button onclick="add('1')" class="gray circular">1</button>
+      <button onclick="add('2')" class="gray circular">2</button>
+      <button onclick="add('3')" class="gray circular">3</button>
+      <button onclick="add('+')" class="orange circular">+</button>
 
-      <button onclick="add('0')" class="zero">0</button>
-      <button onclick="add('.')">.</button>
-      <button onclick="calc()" class="orange">=</button>
+      <button onclick="add('0')" class="zero circular">0</button>
+      <button onclick="add('.')" class="gray circular">.</button>
+      <button onclick="calc()" class="orange circular">=</button>
     </div>
   </div>
 </section>
@@ -284,13 +284,13 @@
     count++;
     count2++;
     document.getElementById("count").textContent = count;
-    document.getElementById("count").textContent = count2;
+    document.getElementById("count2").textContent = count2;
   }
   function decrease() {
   count--;
   count2++;
   document.getElementById("count").textContent = count;
-  document.getElementById("count").textContent = count2;
+  document.getElementById("count2").textContent = count2;
   }
 
   // Jogo da Velha
