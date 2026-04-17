@@ -100,6 +100,7 @@
   <h2>To-Do List</h2>
   <input type="text" id="task" placeholder="Digite uma tarefa">
   <button onclick="addTask()">Adicionar</button>
+  <button onclick="clearTasks()">Adicionar</button>
   <ul id="list"></ul>
 </section>
 
@@ -141,11 +142,32 @@
 
   // To-Do
   function addTask() {
-    let task = document.getElementById("task").value;
-    let li = document.createElement("li");
-    li.textContent = task;
-    li.onclick = () => li.remove();
-    document.getElementById("list").appendChild(li);
+  let taskInput = document.getElementById("task");
+  let task = taskInput.value.trim();
+
+  if (task === "") return;
+
+  let li = document.createElement("li");
+  li.textContent = task;
+
+  // Create remove button
+  let btn = document.createElement("button");
+  btn.textContent = "❌";
+  btn.style.marginLeft = "10px";
+
+  btn.onclick = function () {
+    li.remove();
+  };
+
+  li.appendChild(btn);
+
+  document.getElementById("list").appendChild(li);
+
+  taskInput.value = "";
+  }
+
+  function clearTasks() {
+  document.getElementById("list").innerHTML = "";
   }
 
   // Contador
