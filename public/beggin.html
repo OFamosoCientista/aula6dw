@@ -100,14 +100,15 @@
   <h2>To-Do List</h2>
   <input type="text" id="task" placeholder="Digite uma tarefa">
   <button onclick="addTask()">Adicionar</button>
-  <button onclick="clearTasks()">Adicionar</button>
+  <button onclick="clearTasks()">Limpar</button>
   <ul id="list"></ul>
 </section>
 
 <section id="contador">
   <h2>Contador de Cliques</h2>
   <p id="count">0</p>
-  <button onclick="increment()">Clique</button>
+  <button onclick="increment()">+</button>
+  <button onclick="decrease()">-</button>
 </section>
 
 <section id="jogo">
@@ -175,6 +176,10 @@
   function increment() {
     count++;
     document.getElementById("count").textContent = count;
+  }
+  function decrease() {
+  count--;
+  document.getElementById("count").textContent = count;
   }
 
   // Jogo da Velha
