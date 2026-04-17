@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <title>Multi Ferramentas</title>
-  <link rel="stylesheet" href="../src/beggin.css">
+  <link rel="stylesheet" href="beggin.css">
 </head>
 <body>
 
 <header>
   <h1>Projeto Multi Ferramentas</h1>
   <nav>
-    <button onclick="show('todo')">To-Do List</button>
-    <button onclick="show('contador')">Contador</button>
-    <button onclick="show('jogo')">Jogo da Velha</button>
-    <button onclick="show('calc')">Calculadora</button>
-    <button onclick="show('cep')">Buscador de CEP</button>
+    <button onclick="showSection('todo')">To-Do List</button>
+    <button onclick="showSection('contador')">Contador</button>
+    <button onclick="showSection('jogo')">Jogo da Velha</button>
+    <button onclick="showSection('calc')">Calculadora</button>
+    <button onclick="showSection('cep')">Buscador de CEP</button>
   </nav>
 </header>
 
@@ -38,8 +38,8 @@
 
 <section id="calc">
   <h2>Calculadora</h2>
-  <input id="num1" type="number">
-  <input id="num2" type="number">
+  <input id="num1" type="number" placeholder="Número 1">
+  <input id="num2" type="number" placeholder="Número 2">
   <button onclick="calc('+')">+</button>
   <button onclick="calc('-')">-</button>
   <button onclick="calc('*')">*</button>
@@ -54,7 +54,8 @@
   <p id="cepResult"></p>
 </section>
 
-<script src="../src/beggin.js"></script>
+<!-- 🔥 Corrigido caminho -->
+<script src="beggin.js"></script>
 
 </body>
 </html>
